@@ -1,0 +1,3112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women in Engineering - ESA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #3e2723;
+            --primary-medium: #5d4037;
+            --chocolate: #7b4f2e;
+            --gold: #d4af37;
+            --cream: #f5f5f5;
+            --white: #ffffff;
+            --text-light: #666;
+            --gradient: linear-gradient(135deg, #3e2723, #5d4037);
+            --gradient-gold: linear-gradient(135deg, #d4af37, #f7ef8a);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Back to Website Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .wie-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wie-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .wie-header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .wie-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .gold-accent {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .hero-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            transform: rotate(-2deg);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Programs Section */
+        .programs-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--gold);
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), #f7ef8a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--primary-dark);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .program-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        /* Gallery Filters */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background: var(--cream);
+            color: var(--primary-dark);
+            border: 2px solid transparent;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover {
+            background: var(--gold);
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border-color: var(--gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 280px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item.fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Gallery Overlay */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(62, 39, 35, 0.95));
+            color: var(--white);
+            padding: 25px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .gallery-category {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Load More Section */
+        .load-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .load-more-btn {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            min-width: 200px;
+        }
+
+        .load-more-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-loader {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .photos-count {
+            margin-top: 15px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* New items animation */
+        .gallery-item.new-item {
+            animation: slideIn 0.6s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-filters {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 80px 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .gallery-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .gallery-overlay {
+                padding: 20px;
+            }
+
+            .gallery-overlay h3 {
+                font-size: 1.1rem;
+            }
+
+            .load-more-btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+
+
+
+
+
+
+
+
+        /* Team Section - Enhanced */
+        .team-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold);
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 4px solid var(--gold);
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--primary-dark);
+        }
+
+        .team-member .role {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .team-member p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .member-social a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--white);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalSlideIn 0.5s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-header p {
+            opacity: 0.9;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--white);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--gold);
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .requirements-list {
+            background: var(--cream);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .requirements-list h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .requirements-list ul {
+            list-style-type: none;
+        }
+
+        .requirements-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .requirements-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            display: block;
+            margin: 40px auto 0;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Footer */
+        .wie-footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 50px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links-mega {
+            list-style: none;
+        }
+
+        .footer-links-mega li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links-mega a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .footer-links-mega a:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links-mega i {
+            color: var(--gold);
+            font-size: 0.8rem;
+        }
+
+        .social-links-mega {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links-mega a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links-mega a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form-mega {
+            margin-top: 20px;
+        }
+
+        .form-group-mega {
+            margin-bottom: 15px;
+        }
+
+        .form-control-mega {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control-mega::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-control-mega:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .footer-bottom-mega {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-bottom-mega a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-mega a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fef9f3 0%, #fffaf0 50%, #fef9f3 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(212, 175, 55, 0.3),
+                rgba(212, 175, 55, 0.6),
+                rgba(212, 175, 55, 0.3),
+                transparent
+            );
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(212, 175, 55, 0.3),
+                rgba(212, 175, 55, 0.6),
+                rgba(212, 175, 55, 0.3),
+                transparent
+            );
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== CONTACT INFORMATION ===== */
+        .contact-info {
+            background: linear-gradient(145deg, #ffffff, #fdf6e3);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow:
+                0 20px 40px rgba(139, 69, 19, 0.1),
+                0 8px 16px rgba(212, 175, 55, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg,
+                #d4af37,
+                #f7ef8a,
+                #d4af37
+            );
+            border-radius: 25px 25px 0 0;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .contact-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #f7ef8a);
+            border-radius: 2px;
+        }
+
+        .contact-header h3 {
+            color: #5d4037;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b4513, #5d4037);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-header p {
+            color: #8d6e63;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #fffaf0, #fef9e7);
+            padding: 28px 25px;
+            border-radius: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 22px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08);
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(247, 239, 138, 0.05));
+            transition: width 0.4s ease;
+            z-index: 1;
+        }
+
+        .contact-item:hover::before {
+            width: 100%;
+        }
+
+        .contact-item.clickable {
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 15px 35px rgba(139, 69, 19, 0.15),
+                0 5px 15px rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #d4af37, #f7ef8a);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #5d4037;
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow:
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        .contact-details {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-details h4 {
+            color: #5d4037;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-details p {
+            color: #8d6e63;
+            line-height: 1.5;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .click-hint {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: #d4af37;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .contact-item:hover .click-hint {
+            opacity: 1;
+            transform: translateX(-5px);
+        }
+
+        /* ===== SOCIAL LINKS IN CONTACT ===== */
+        .social-links-contact {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .social-links-contact a {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #ffffff, #fdf6e3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8d6e63;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 3px 10px rgba(139, 69, 19, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-links-contact a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #d4af37, #f7ef8a);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .social-links-contact a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow:
+                0 6px 20px rgba(212, 175, 55, 0.3),
+                0 3px 10px rgba(139, 69, 19, 0.15);
+            color: #5d4037;
+        }
+
+        .social-links-contact a:hover::before {
+            opacity: 1;
+        }
+
+        .social-links-contact a i {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== CONTACT FORM ===== */
+        .contact-form-container {
+            background: linear-gradient(145deg, #ffffff, #fdf6e3);
+            padding: 50px 45px;
+            border-radius: 25px;
+            box-shadow:
+                0 20px 40px rgba(139, 69, 19, 0.1),
+                0 8px 16px rgba(212, 175, 55, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg,
+                #d4af37,
+                #f7ef8a,
+                #d4af37
+            );
+            border-radius: 25px 25px 0 0;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .form-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37, #f7ef8a);
+            border-radius: 2px;
+        }
+
+        .form-header h3 {
+            color: #5d4037;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b4513, #5d4037);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-header p {
+            color: #8d6e63;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group label {
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #5d4037;
+            font-size: 0.92rem;
+            letter-spacing: 0.3px;
+        }
+
+        .input-with-icon, .textarea-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i, .textarea-with-icon i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d4af37;
+            font-size: 1.1rem;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .textarea-with-icon i {
+            top: 22px;
+            transform: none;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px 16px 52px;
+            border: 2px solid rgba(139, 69, 19, 0.1);
+            border-radius: 14px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 253, 248, 0.8);
+            font-family: inherit;
+            color: #5d4037;
+            font-weight: 500;
+            box-shadow: inset 0 2px 4px rgba(139, 69, 19, 0.05);
+        }
+
+        .form-control::placeholder {
+            color: #a1887f;
+            font-weight: 400;
+        }
+
+        .textarea-with-icon .form-control {
+            padding-left: 52px;
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.5;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: #fffef9;
+            box-shadow:
+                0 0 0 4px rgba(212, 175, 55, 0.15),
+                inset 0 2px 4px rgba(139, 69, 19, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .form-control:focus + i {
+            color: #8b4513;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .textarea-with-icon .form-control:focus + i {
+            transform: scale(1.1);
+        }
+
+        /* ===== CHECKBOX STYLING ===== */
+        .checkbox-group {
+            margin-top: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #8d6e63;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .checkbox-label:hover {
+            color: #5d4037;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkmark {
+            width: 22px;
+            height: 22px;
+            border: 2px solid rgba(139, 69, 19, 0.3);
+            border-radius: 6px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            background: #fffef9;
+            box-shadow: inset 0 1px 3px rgba(139, 69, 19, 0.1);
+        }
+
+        .checkbox-label input[type="checkbox"]:checked + .checkmark {
+            background: linear-gradient(135deg, #d4af37, #f7ef8a);
+            border-color: #d4af37;
+            box-shadow:
+                0 2px 8px rgba(212, 175, 55, 0.3),
+                inset 0 1px 1px rgba(255, 255, 255, 0.6);
+        }
+
+        .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #5d4037;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* ===== FORM ACTIONS ===== */
+        .form-actions {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .contact-submit-btn {
+            background: linear-gradient(135deg, #d4af37, #f7ef8a);
+            color: #5d4037;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow:
+                0 6px 20px rgba(212, 175, 55, 0.4),
+                0 3px 10px rgba(139, 69, 19, 0.2);
+            position: relative;
+            min-width: 200px;
+            overflow: hidden;
+        }
+
+        .contact-submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+
+        .contact-submit-btn:hover:not(:disabled) {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow:
+                0 12px 30px rgba(212, 175, 55, 0.5),
+                0 6px 20px rgba(139, 69, 19, 0.25);
+        }
+
+        .contact-submit-btn:hover:not(:disabled)::before {
+            left: 100%;
+        }
+
+        .contact-submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 3px 10px rgba(139, 69, 19, 0.1);
+        }
+
+        /* ===== FORM FOOTER ===== */
+        .form-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .form-footer p {
+            color: #8d6e63;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .form-footer i {
+            color: #d4af37;
+            font-size: 1rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1100px) {
+            .contact-container {
+                gap: 50px;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 45px 35px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 40px 35px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-header h3, .form-header h3 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 80px 0;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 35px 30px;
+                border-radius: 20px;
+            }
+
+            .contact-header, .form-header {
+                margin-bottom: 35px;
+                padding-bottom: 25px;
+            }
+
+            .contact-item {
+                padding: 24px 22px;
+                flex-direction: column;
+                text-align: center;
+                gap: 18px;
+            }
+
+            .contact-icon {
+                align-self: center;
+            }
+
+            .form-row {
+                gap: 18px;
+            }
+
+            .form-control {
+                padding: 14px 18px 14px 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-section {
+                padding: 60px 0;
+            }
+
+            .contact-info, .contact-form-container {
+                padding: 30px 25px;
+                border-radius: 18px;
+            }
+
+            .contact-header h3, .form-header h3 {
+                font-size: 1.6rem;
+            }
+
+            .contact-header p, .form-header p {
+                font-size: 1rem;
+            }
+
+            .contact-submit-btn {
+                padding: 16px 40px;
+                font-size: 1rem;
+                width: 100%;
+                min-width: auto;
+            }
+
+            .social-links-contact {
+                justify-content: center;
+            }
+
+            .form-footer p {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* ===== FIELD ERRORS AND NOTIFICATIONS ===== */
+        .field-error {
+            color: #d32f2f;
+            font-size: 0.8rem;
+            margin-top: 6px;
+            display: none;
+            font-weight: 500;
+            padding-left: 5px;
+        }
+
+        .form-control.error {
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .notification-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .wie-header h1 {
+                font-size: 3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container-mega {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .wie-header {
+                padding: 80px 0 60px;
+            }
+
+            .wie-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-links-mega {
+                text-align: center;
+            }
+
+            .footer-links-mega a {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .wie-header h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Website Button -->
+    <a href="{% url 'index' %}" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Website
+    </a>
+
+    <!-- Header -->
+    <header class="wie-header">
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>Women in <span class="gold-accent">Engineering</span></h1>
+                <p>Empowering the next generation of female engineering leaders at University of Eldoret</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <h2>Breaking Barriers, Building Futures</h2>
+                    <p>The Women in Engineering (WIE) initiative at ESA is dedicated to supporting, empowering, and celebrating female engineering students. We provide a platform for networking, mentorship, and professional development.</p>
+                    <p>Our mission is to increase the representation of women in engineering fields and create an inclusive environment where every female engineer can thrive and reach her full potential.</p>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Women in Engineering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="35">0</span>
+                    <div class="stat-text">Female Engineering Students</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="150">0</span>
+                    <div class="stat-text">Active WIE Members</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="25">0</span>
+                    <div class="stat-text">Industry Partners</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <span class="stat-number" data-target="12">0</span>
+                    <div class="stat-text">Annual Events</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Programs</h2>
+                <p>Comprehensive initiatives designed to support women in engineering</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Mentorship Program</h3>
+                    <p>Connect with experienced female engineers and industry professionals for guidance and career advice.</p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Technical Workshops</h3>
+                    <p>Hands-on workshops and training sessions to enhance technical skills and build confidence.</p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Development</h3>
+                    <p>Internship opportunities, resume building, and interview preparation sessions.</p>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Outreach</h3>
+                    <p>Engage with schools and communities to inspire the next generation of female engineers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>WIE Gallery</h2>
+                    <p>Moments that inspire and celebrate women in engineering</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="gallery-filters fade-in">
+                    <button class="filter-btn active" data-filter="all">All Photos</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="workshops">Workshops</button>
+                    <button class="filter-btn" data-filter="team">Team</button>
+                    <button class="filter-btn" data-filter="outreach">Outreach</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Event Photos -->
+                    <div class="gallery-item fade-in" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="WIE Annual Conference">
+                        <div class="gallery-overlay">
+                            <h3>Annual Conference 2024</h3>
+                            <p>Networking with industry leaders</p>
+                            <span class="gallery-category">Events</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Award Ceremony">
+                        <div class="gallery-overlay">
+                            <h3>Award Ceremony</h3>
+                            <p>Celebrating achievements</p>
+                            <span class="gallery-category">Events</span>
+                        </div>
+                    </div>
+
+                    <!-- Workshop Photos -->
+                    <div class="gallery-item fade-in" data-category="workshops">
+                        <img src="https://images.unsplash.com/photo-1581094794360-5a0cf566038a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Technical Workshop">
+                        <div class="gallery-overlay">
+                            <h3>CAD Workshop</h3>
+                            <p>Hands-on design session</p>
+                            <span class="gallery-category">Workshops</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in" data-category="workshops">
+                        <img src="https://images.unsplash.com/photo-1581094794358-8460cf969b14?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Coding Workshop">
+                        <div class="gallery-overlay">
+                            <h3>Programming Workshop</h3>
+                            <p>Python fundamentals</p>
+                            <span class="gallery-category">Workshops</span>
+                        </div>
+                    </div>
+
+                    <!-- Team Photos -->
+                    <div class="gallery-item fade-in" data-category="team">
+                        <img src="https://images.unsplash.com/photo-1581094794355-9270955b0385?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="WIE Leadership">
+                        <div class="gallery-overlay">
+                            <h3>Executive Team</h3>
+                            <p>2024 Leadership board</p>
+                            <span class="gallery-category">Team</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item fade-in" data-category="team">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Meeting">
+                        <div class="gallery-overlay">
+                            <h3>Strategic Planning</h3>
+                            <p>Weekly team meeting</p>
+                            <span class="gallery-category">Team</span>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Photos (will be shown when loading more) -->
+
+                    <!-- More Events -->
+                    <div class="gallery-item hidden" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Industry Visit">
+                        <div class="gallery-overlay">
+                            <h3>Industry Visit</h3>
+                            <p>KENGEN Power Plant tour</p>
+                            <span class="gallery-category">Events</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="events">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Career Fair">
+                        <div class="gallery-overlay">
+                            <h3>Career Fair</h3>
+                            <p>Connecting with employers</p>
+                            <span class="gallery-category">Events</span>
+                        </div>
+                    </div>
+
+                    <!-- More Workshops -->
+                    <div class="gallery-item hidden" data-category="workshops">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Robotics Workshop">
+                        <div class="gallery-overlay">
+                            <h3>Robotics Workshop</h3>
+                            <p>Building autonomous systems</p>
+                            <span class="gallery-category">Workshops</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="workshops">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="3D Printing">
+                        <div class="gallery-overlay">
+                            <h3>3D Printing Workshop</h3>
+                            <p>Prototype development</p>
+                            <span class="gallery-category">Workshops</span>
+                        </div>
+                    </div>
+
+                    <!-- More Team -->
+                    <div class="gallery-item hidden" data-category="team">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team Building">
+                        <div class="gallery-overlay">
+                            <h3>Team Building</h3>
+                            <p>Annual retreat activities</p>
+                            <span class="gallery-category">Team</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="team">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Planning Session">
+                        <div class="gallery-overlay">
+                            <h3>Planning Session</h3>
+                            <p>Setting annual goals</p>
+                            <span class="gallery-category">Team</span>
+                        </div>
+                    </div>
+
+                    <!-- Outreach Photos -->
+                    <div class="gallery-item hidden" data-category="outreach">
+                        <img src="https://images.unsplash.com/photo-1581094794359-8460cf969a14?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="School Visit">
+                        <div class="gallery-overlay">
+                            <h3>High School Visit</h3>
+                            <p>Inspiring future engineers</p>
+                            <span class="gallery-category">Outreach</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="outreach">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Community Project">
+                        <div class="gallery-overlay">
+                            <h3>Community Project</h3>
+                            <p>Water purification system</p>
+                            <span class="gallery-category">Outreach</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="outreach">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="STEM Day">
+                        <div class="gallery-overlay">
+                            <h3>STEM Day</h3>
+                            <p>Engaging young minds</p>
+                            <span class="gallery-category">Outreach</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item hidden" data-category="outreach">
+                        <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mentorship Program">
+                        <div class="gallery-overlay">
+                            <h3>Mentorship Program</h3>
+                            <p>Guiding high school students</p>
+                            <span class="gallery-category">Outreach</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container fade-in">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <span class="btn-text">Load More Photos</span>
+                        <span class="btn-loader" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Loading...
+                        </span>
+                    </button>
+                    <div class="photos-count" id="photosCount">Showing 6 of 16 photos</div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Meet Our Team</h2>
+                <p>Dedicated leaders driving the WIE initiative forward</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <div class="role">WIE Chairperson</div>
+                    <p>4th Year Electrical Engineering Student with passion for renewable energy systems and women empowerment in STEM fields.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Grace Mwangi">
+                    </div>
+                    <h3>Grace Mwangi</h3>
+                    <div class="role">Vice Chairperson</div>
+                    <p>3rd Year Mechanical Engineering Student specializing in automotive design and passionate about mentorship programs.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Linda Akinyi">
+                    </div>
+                    <h3>Linda Akinyi</h3>
+                    <div class="role">Programs Coordinator</div>
+                    <p>3rd Year Civil Engineering Student focused on sustainable infrastructure and organizing impactful WIE events.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1536922246289-88c42f957773?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mercy Chebet">
+                    </div>
+                    <h3>Mercy Chebet</h3>
+                    <div class="role">Outreach Coordinator</div>
+                    <p>2nd Year Agricultural Engineering Student passionate about community engagement and inspiring young girls in STEM.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="section-title fade-in">
+            <h2>Contact WIE</h2>
+            <p>Get in touch with the Women in Engineering initiative</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <div class="contact-header fade-in">
+                    <h3>Let's Connect</h3>
+                    <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                </div>
+
+                <div class="contact-items">
+                    <div class="contact-item fade-in" data-type="location">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>University of Eldoret Main Campus<br>School Of Engineering Complex<br>Eldoret, Kenya</p>
+                        </div>
+                        <div class="contact-glow"></div>
+                    </div>
+
+                    <a href="tel:+254113333041" class="contact-item fade-in clickable" data-type="phone">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <p>+254 113 333 041</p>
+                        </div>
+                        <div class="contact-glow"></div>
+                        <div class="click-hint">
+                            <i class="fas fa-phone"></i> Tap to Call
+                        </div>
+                    </a>
+
+                    <a href="mailto:esauoe@uoeld.ac.ke?subject=WIE%20Inquiry&body=Hello%20WIE%20Team,%0A%0AI%20would%20like%20to%20get%20in%20touch%20with%20you%20regarding..." class="contact-item fade-in clickable" data-type="email">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <p>esauoe@uoeld.ac.ke</p>
+                        </div>
+                        <div class="contact-glow"></div>
+                        <div class="click-hint">
+                            <i class="fas fa-envelope"></i> Tap to Email
+                        </div>
+                    </a>
+
+                    <div class="contact-item fade-in" data-type="hours">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="contact-glow"></div>
+                    </div>
+
+                    <div class="contact-item fade-in" data-type="social">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Follow Us</h4>
+                            <div class="social-links-contact">
+                                <a href="https://www.facebook.com/profile.php?id=61575201954261" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/esa_uoe?igsh=MTZ5NzFoZWx4eGUzaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/engineering-students-association-00a577386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        <div class="contact-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container fade-in">
+                <div class="form-header">
+                    <h3>Send us a Message</h3>
+                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactName">Full Name *</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="contactName" class="form-control" placeholder="Enter your full name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address *</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="contactEmail" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="contactPhone" class="form-control" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Subject *</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-tag"></i>
+                                <select id="contactSubject" class="form-control" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="membership">WIE Membership</option>
+                                    <option value="partnership">Partnership Opportunity</option>
+                                    <option value="event">Event Information</option>
+                                    <option value="volunteer">Volunteer Opportunity</option>
+                                    <option value="sponsorship">Sponsorship</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactDepartment">Department (if applicable)</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                            <select id="contactDepartment" class="form-control">
+                                <option value="">Select your department</option>
+                                <option value="civil">Civil & Structural Engineering</option>
+                                <option value="mechanical">Mechanical & Production Engineering</option>
+                                <option value="electrical">Electrical Engineering</option>
+                                <option value="agricultural">Agricultural & Biosystems Engineering</option>
+                                <option value="other">Other Department</option>
+                                <option value="not-student">Not a student</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Message *</label>
+                        <div class="textarea-with-icon">
+                            <i class="fas fa-comment"></i>
+                            <textarea id="contactMessage" class="form-control" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn contact-submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="form-footer">
+                        <p><i class="fas fa-info-circle"></i> We typically respond within 24 hours during working days</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Join Our Movement</h2>
+                <p>Be part of the change and help us build a more inclusive engineering community. Together, we can shape the future of technology and innovation.</p>
+                <button class="cta-button" id="openModal">Get Involved Today</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved Modal -->
+    <div class="modal" id="involvementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" id="closeModal">&times;</button>
+                <h2>Join Women in Engineering</h2>
+                <p>Fill out the form below to become part of our empowering community</p>
+            </div>
+            <div class="modal-body">
+                <div class="requirements-list">
+                    <h3>Membership Requirements</h3>
+                    <ul>
+                        <li>Must be a registered student at University of Eldoret</li>
+                        <li>Pursuing any engineering discipline</li>
+                        <li>Commitment to attend at least 60% of WIE events</li>
+                        <li>Willingness to participate in mentorship programs</li>
+                        <li>Interest in promoting women in STEM fields</li>
+                        <li>Good academic standing (GPA of 2.5 and above)</li>
+                    </ul>
+                </div>
+
+                <form id="involvementForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="admissionNumber">Admission Number *</label>
+                            <input type="text" id="admissionNumber" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="yearOfStudy">Year of Study *</label>
+                            <select id="yearOfStudy" class="form-control" required>
+                                <option value="">Select Year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                                <option value="5th Year">5th Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" class="form-control" required>
+                                <option value="">Select Department</option>
+                                <option value="Civil & Structural Engineering">Civil & Structural Engineering</option>
+                                <option value="Mechanical & Production Engineering">Mechanical & Production Engineering</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Agricultural & Biosystems Engineering">Agricultural & Biosystems Engineering</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentGPA">Current GPA *</label>
+                        <input type="number" id="currentGPA" class="form-control" min="1.0" max="4.0" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interestAreas">Areas of Interest (Select all that apply)</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Technical Workshops"> Technical Workshops
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Mentorship"> Mentorship
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Career Development"> Career Development
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Community Outreach"> Community Outreach
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Research"> Research
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" name="interestAreas" value="Leadership"> Leadership
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previousExperience">Previous Engineering/Leadership Experience</label>
+                        <textarea id="previousExperience" class="form-control" placeholder="Describe any relevant experience..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to join WIE? *</label>
+                        <textarea id="motivation" class="form-control" required placeholder="Tell us about your motivation for joining Women in Engineering..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectations">What do you hope to gain from WIE membership?</label>
+                        <textarea id="expectations" class="form-control" placeholder="Describe your expectations..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="wie-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WIE - ESA UoE</h3>
+                    <p>Women in Engineering initiative at the Engineering Students Association, University of Eldoret - Empowering female engineers through innovation, collaboration, and excellence.</p>
+                    <div class="social-links-mega">
+                        <a href="https://www.facebook.com/profile.php?id=61575201954261" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/esa_uoe?igsh=MTZ5NzFoZWx4eGUzaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/engineering-students-association-00a577386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links-mega">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> About WIE</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Programs</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Our Team</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on events, opportunities, and engineering insights.</p>
+                    <form class="newsletter-form-mega" id="newsletterForm">
+                        <div class="form-group-mega">
+                            <input type="email" id="newsletterEmail" class="form-control-mega" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn btn-gold">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom-mega">
+                <p>&copy; 2025 Women in Engineering - ESA University of Eldoret. All Rights Reserved. | Developed By <a href="https://mkcoder729.github.io/just-my-portfolio/" target="_blank" rel="noopener noreferrer">Mukoya Khisa</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Counter Animation for Stats
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-target'));
+        const suffix = element.getAttribute('data-target') === '35' ? '%' : '+';
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+
+        // Reset the element text to 0 before starting animation
+        element.textContent = '0' + (element.getAttribute('data-target') === '35' ? '%' : '+');
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                element.textContent = target + suffix;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(current) + suffix;
+            }
+        }, 16);
+    }
+
+    // Intersection Observer for Stats - Restarts animation every time
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target.querySelector('.stat-number');
+                if (statNumber) {
+                    // Remove any existing animated class and restart animation
+                    statNumber.classList.remove('animated');
+                    setTimeout(() => {
+                        animateCounter(statNumber);
+                    }, 300); // Small delay for better visual effect
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Observe all stat items
+    document.querySelectorAll('.stat-item').forEach(item => {
+        statObserver.observe(item);
+    });
+
+    // Modal functionality
+    const modal = document.getElementById('involvementModal');
+    const openModalBtn = document.getElementById('openModal');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    openModalBtn.addEventListener('click', () => {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Form submission
+    document.getElementById('involvementForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you for your application! We will review it and get back to you soon.');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        e.target.reset();
+    });
+
+    // Newsletter form
+    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail').value;
+        alert(`Thank you for subscribing with ${email}! You'll receive our updates soon.`);
+        e.target.reset();
+    });
+
+    // Fade in animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                } else {
+                    // Reset opacity when element leaves viewport for re-animation
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(30px)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            fadeInOnScroll.observe(element);
+        });
+    });
+
+
+
+            // Gallery functionality
+    class GalleryManager {
+        constructor() {
+            this.allItems = Array.from(document.querySelectorAll('.gallery-item'));
+            this.visibleItems = 6;
+            this.currentFilter = 'all';
+            this.isLoading = false;
+
+            this.init();
+        }
+
+        init() {
+            this.setupEventListeners();
+            this.updateGallery();
+            this.updatePhotosCount();
+        }
+
+        setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    this.handleFilterClick(e.target);
+                });
+            });
+
+            // Load more button
+            document.getElementById('loadMoreBtn').addEventListener('click', () => {
+                this.loadMorePhotos();
+            });
+        }
+
+        handleFilterClick(button) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+
+            // Set new filter and reset visible items
+            this.currentFilter = button.getAttribute('data-filter');
+            this.visibleItems = 6;
+
+            // Update gallery
+            this.updateGallery();
+            this.updatePhotosCount();
+        }
+
+        updateGallery() {
+            const filteredItems = this.currentFilter === 'all'
+                ? this.allItems
+                : this.allItems.filter(item => item.getAttribute('data-category') === this.currentFilter);
+
+            // Hide all items first
+            this.allItems.forEach(item => {
+                item.classList.add('hidden');
+                item.classList.remove('fade-in', 'new-item');
+            });
+
+            // Show filtered items up to visibleItems count
+            filteredItems.slice(0, this.visibleItems).forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.remove('hidden');
+                    item.classList.add('fade-in');
+                }, index * 100);
+            });
+
+            // Update load more button state
+            this.updateLoadMoreButton(filteredItems.length);
+        }
+
+        async loadMorePhotos() {
+            if (this.isLoading) return;
+
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const btnText = loadMoreBtn.querySelector('.btn-text');
+            const btnLoader = loadMoreBtn.querySelector('.btn-loader');
+            const filteredItems = this.currentFilter === 'all'
+                ? this.allItems
+                : this.allItems.filter(item => item.getAttribute('data-category') === this.currentFilter);
+
+            // Show loading state
+            this.isLoading = true;
+            btnText.style.display = 'none';
+            btnLoader.style.display = 'flex';
+            loadMoreBtn.disabled = true;
+
+            // Simulate loading delay
+            await new Promise(resolve => setTimeout(resolve, 1000));
+
+            // Load 3 more photos
+            this.visibleItems += 3;
+
+            // Update gallery with new items
+            const newItems = filteredItems.slice(this.visibleItems - 3, this.visibleItems);
+            newItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.remove('hidden');
+                    item.classList.add('new-item');
+                }, index * 150);
+            });
+
+            // Hide loading state
+            this.isLoading = false;
+            btnText.style.display = 'block';
+            btnLoader.style.display = 'none';
+            loadMoreBtn.disabled = false;
+
+            // Update counts and button state
+            this.updatePhotosCount();
+            this.updateLoadMoreButton(filteredItems.length);
+        }
+
+        updateLoadMoreButton(totalFilteredItems) {
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const hasMoreItems = this.visibleItems < totalFilteredItems;
+
+            if (!hasMoreItems) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'block';
+            }
+        }
+
+        updatePhotosCount() {
+            const totalItems = this.currentFilter === 'all'
+                ? this.allItems.length
+                : this.allItems.filter(item => item.getAttribute('data-category') === this.currentFilter).length;
+
+            const countElement = document.getElementById('photosCount');
+            countElement.textContent = `Showing ${Math.min(this.visibleItems, totalItems)} of ${totalItems} photos`;
+        }
+    }
+
+    // Initialize gallery when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        new GalleryManager();
+    });
+
+
+
+                // Contact Form Functionality
+        class ContactFormManager {
+            constructor() {
+                this.form = document.getElementById('contactForm');
+                this.submitBtn = this.form.querySelector('.contact-submit-btn');
+                this.btnText = this.submitBtn.querySelector('.btn-text');
+                this.btnLoader = this.submitBtn.querySelector('.btn-loader');
+
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.setupFormValidation();
+            }
+
+            setupEventListeners() {
+                this.form.addEventListener('submit', (e) => {
+                    this.handleFormSubmit(e);
+                });
+
+                // Real-time validation
+                this.form.querySelectorAll('input, textarea, select').forEach(input => {
+                    input.addEventListener('blur', () => {
+                        this.validateField(input);
+                    });
+
+                    input.addEventListener('input', () => {
+                        this.clearFieldError(input);
+                    });
+                });
+            }
+
+            setupFormValidation() {
+                // Add custom validation for phone number
+                const phoneInput = document.getElementById('contactPhone');
+                phoneInput.addEventListener('input', (e) => {
+                    e.target.value = e.target.value.replace(/[^0-9+\-\s]/g, '');
+                });
+            }
+
+            validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+                let errorMessage = '';
+
+                // Clear previous error
+                this.clearFieldError(field);
+
+                // Required fields validation
+                if (field.hasAttribute('required') && !value) {
+                    isValid = false;
+                    errorMessage = 'This field is required';
+                }
+
+                // Email validation
+                if (field.type === 'email' && value) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid email address';
+                    }
+                }
+
+                // Phone validation (if provided)
+                if (field.id === 'contactPhone' && value) {
+                    const phoneRegex = /^[\d\s+\-()]{10,}$/;
+                    if (!phoneRegex.test(value)) {
+                        isValid = false;
+                        errorMessage = 'Please enter a valid phone number';
+                    }
+                }
+
+                if (!isValid) {
+                    this.showFieldError(field, errorMessage);
+                }
+
+                return isValid;
+            }
+
+            showFieldError(field, message) {
+                field.style.borderColor = '#e74c3c';
+
+                // Create or update error message
+                let errorElement = field.parentNode.querySelector('.field-error');
+                if (!errorElement) {
+                    errorElement = document.createElement('div');
+                    errorElement.className = 'field-error';
+                    field.parentNode.appendChild(errorElement);
+                }
+
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+
+            clearFieldError(field) {
+                field.style.borderColor = '#e0e0e0';
+                const errorElement = field.parentNode.querySelector('.field-error');
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+            }
+
+            async handleFormSubmit(e) {
+                e.preventDefault();
+
+                // Validate all fields
+                const fields = this.form.querySelectorAll('input, textarea, select');
+                let isFormValid = true;
+
+                fields.forEach(field => {
+                    if (!this.validateField(field)) {
+                        isFormValid = false;
+                    }
+                });
+
+                if (!isFormValid) {
+                    this.showNotification('Please fix the errors in the form', 'error');
+                    return;
+                }
+
+                // Show loading state
+                this.setLoadingState(true);
+
+                try {
+                    // Simulate API call
+                    await this.submitFormData();
+
+                    // Show success message
+                    this.showNotification('Message sent successfully! We\'ll get back to you within 24 hours.', 'success');
+
+                    // Reset form
+                    this.form.reset();
+
+                } catch (error) {
+                    this.showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+                } finally {
+                    this.setLoadingState(false);
+                }
+            }
+
+            async submitFormData() {
+                // Simulate API call delay
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        // Simulate random success (90% success rate)
+                        if (Math.random() > 0.1) {
+                            resolve();
+                        } else {
+                            reject(new Error('Network error'));
+                        }
+                    }, 2000);
+                });
+            }
+
+            setLoadingState(isLoading) {
+                if (isLoading) {
+                    this.submitBtn.disabled = true;
+                    this.btnText.style.display = 'none';
+                    this.btnLoader.style.display = 'flex';
+                } else {
+                    this.submitBtn.disabled = false;
+                    this.btnText.style.display = 'block';
+                    this.btnLoader.style.display = 'none';
+                }
+            }
+
+            showNotification(message, type) {
+                // Remove existing notification
+                const existingNotification = document.querySelector('.form-notification');
+                if (existingNotification) {
+                    existingNotification.remove();
+                }
+
+                // Create new notification
+                const notification = document.createElement('div');
+                notification.className = `form-notification ${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                        <span>${message}</span>
+                    </div>
+                    <button class="notification-close">&times;</button>
+                `;
+
+                // Add styles for notification
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: ${type === 'success' ? '#4CAF50' : '#e74c3c'};
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                    z-index: 1000;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    max-width: 400px;
+                    animation: slideInRight 0.3s ease;
+                `;
+
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    notification.remove();
+                });
+
+                document.body.appendChild(notification);
+
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 5000);
+            }
+        }
+
+        // Add CSS for field errors and notifications
+        const contactStyles = `
+            .field-error {
+                color: #e74c3c;
+                font-size: 0.8rem;
+                margin-top: 5px;
+                display: none;
+            }
+
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex: 1;
+            }
+
+            .notification-close {
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.2rem;
+                cursor: pointer;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        `;
+
+        // Initialize contact form when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add styles
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = contactStyles;
+            document.head.appendChild(styleSheet);
+
+            // Initialize form
+            new ContactFormManager();
+        });
+</script>
+</body>
+</html>

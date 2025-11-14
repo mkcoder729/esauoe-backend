@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - ESA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #3e2723;
+            --primary-medium: #5d4037;
+            --chocolate: #7b4f2e;
+            --gold: #d4af37;
+            --cream: #f5f5f5;
+            --white: #ffffff;
+            --text-light: #666;
+            --gradient: linear-gradient(135deg, #3e2723, #5d4037);
+            --gradient-gold: linear-gradient(135deg, #d4af37, #f7ef8a);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Back to Website Button */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Header */
+        .news-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.15;
+            filter: brightness(0.7);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .news-header h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-header p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .gold-accent {
+            color: var(--gold);
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Featured News Banner */
+        .featured-news {
+            background: linear-gradient(135deg, var(--gold), #f7ef8a);
+            color: var(--primary-dark);
+            padding: 30px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 5;
+        }
+
+        /* News Grid */
+        .news-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--gradient-gold);
+            border-radius: 3px;
+        }
+
+        .section-title p {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold);
+            z-index: 2;
+        }
+
+        .news-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--gold);
+        }
+
+        .news-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.15);
+        }
+
+        .news-category-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 3;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .news-content {
+            padding: 35px 30px;
+        }
+
+        .news-date {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        .news-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            line-height: 1.4;
+            font-weight: 700;
+            min-height: 70px;
+        }
+
+        .news-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .news-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .read-more {
+            color: var(--gold);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        /* Submit News Section */
+        .submit-news-section {
+            background: linear-gradient(135deg, #fef9f3 0%, #fffaf0 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .submit-news-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+        }
+
+        .submit-form {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 60px 50px;
+            box-shadow: var(--shadow-heavy);
+            max-width: 900px;
+            margin: 0 auto;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .submit-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-gold);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+            line-height: 1.6;
+        }
+
+        /* File Upload Styling */
+        .file-upload-container {
+            border: 2px dashed #e8e8e8;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: var(--transition);
+            background: #fafafa;
+            cursor: pointer;
+        }
+
+        .file-upload-container:hover {
+            border-color: var(--gold);
+            background: #fffaf0;
+        }
+
+        .file-upload-container.dragover {
+            border-color: var(--gold);
+            background: #fffaf0;
+            transform: scale(1.02);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .file-upload-text {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .file-upload-btn {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .file-upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .file-preview {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .file-preview img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .submit-btn {
+            background: var(--gradient-gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 18px 50px;
+            border-radius: 35px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            display: block;
+            margin: 50px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Brown Dropdown Styling */
+        select.form-control {
+            background: rgba(93, 64, 55, 0.05);
+            border: 2px solid #e8e8e8;
+            color: var(--primary-dark);
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d4af37' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+            padding-right: 40px;
+        }
+
+        select.form-control:focus {
+            background: rgba(93, 64, 55, 0.08);
+            border-color: var(--gold);
+        }
+
+        select.form-control option {
+            background: var(--white);
+            color: var(--primary-dark);
+            padding: 12px;
+        }
+
+        /* Approval Process */
+        .approval-process {
+            background: linear-gradient(135deg, var(--primary-dark), var(--chocolate));
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approval-process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+        }
+
+        .approval-process .section-title h2 {
+            color: var(--white);
+        }
+
+        .approval-process .section-title p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-top: 70px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .process-step:hover .step-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .process-step p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        .news-footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 70px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+
+        .social-links-mega {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links-mega a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-links-mega a:hover {
+            background: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .footer-bottom-mega {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .footer-bottom-mega a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .footer-bottom-mega a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .news-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .submit-form {
+                padding: 50px 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .news-header {
+                padding: 100px 0 60px;
+            }
+
+            .news-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+
+            .submit-form {
+                padding: 40px 30px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .back-button {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            .news-card h3 {
+                font-size: 1.3rem;
+                min-height: auto;
+            }
+
+            .submit-form {
+                padding: 30px 25px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+            <!-- Back to Website Button -->
+        <a href="{% url 'index' %}" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Website
+        </a>
+
+    <!-- Header -->
+    <header class="news-header">
+        <div class="container">
+            <div class="header-content fade-in">
+                <h1>News & <span class="gold-accent">Updates</span></h1>
+                <p>Stay informed about the latest events and happenings in the School of Engineering</p>
+            </div>
+        </div>
+    </header>
+
+
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Latest News</h2>
+                <p>Recent updates and announcements from ESA and the School of Engineering</p>
+            </div>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="First Year Admission">
+                        <div class="news-category-tag">Admissions</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 15, 2024</span>
+                        <h3>First Year Engineering Students Admission 2024/2025</h3>
+                        <p>The School of Engineering is pleased to announce the admission of 450 first-year students for the 2024/2025 academic year. Orientation program scheduled for next week.</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">AD</div>
+                                <span class="author-name">Admissions Dept</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Industry Visit">
+                        <div class="news-category-tag">Industry</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 12, 2024</span>
+                        <h3>Industrial Site Visit to Kenya Electricity Generating Company</h3>
+                        <p>Third-year electrical engineering students visited KENGEN's geothermal plant in Olkaria. The visit provided practical insights into renewable energy generation.</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">JD</div>
+                                <span class="author-name">John Doe</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Tuition Hike">
+                        <div class="news-category-tag">Finance</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 8, 2024</span>
+                        <h3>Revised Tuition Structure for Engineering Programs</h3>
+                        <p>The university has announced a 5% adjustment in tuition fees for engineering programs effective next semester. Scholarships and bursaries available for needy students.</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">FD</div>
+                                <span class="author-name">Finance Dept</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Research Grant">
+                        <div class="news-category-tag">Research</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 5, 2024</span>
+                        <h3>ESA Research Team Secures KSh 2.5M Grant</h3>
+                        <p>Our research team has been awarded a substantial grant for their project on sustainable water purification systems for rural communities in Kenya.</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">RT</div>
+                                <span class="author-name">Research Team</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Workshop">
+                        <div class="news-category-tag">Workshop</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">March 1, 2024</span>
+                        <h3>Advanced CAD/CAM Workshop Series Starting Next Week</h3>
+                        <p>Free workshops on advanced engineering software tools. Open to all engineering students. Limited slots available - register early!</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">TD</div>
+                                <span class="author-name">Technical Dept</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 -->
+                <div class="news-card fade-in">
+                    <div class="news-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Career Fair">
+                        <div class="news-category-tag">Career</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">February 25, 2024</span>
+                        <h3>Annual Engineering Career Fair 2024</h3>
+                        <p>Over 30 companies confirmed participation in this year's career fair. Prepare your CVs and portfolio for this great networking opportunity.</p>
+                        <div class="news-meta">
+                            <div class="news-author">
+                                <div class="author-avatar">CD</div>
+                                <span class="author-name">Career Dept</span>
+                            </div>
+                            <a href="#" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit News Section -->
+    <section class="submit-news-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Submit News</h2>
+                <p>Share your news and updates with the engineering community</p>
+            </div>
+            <div class="submit-form fade-in">
+                <form id="newsForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="yearOfStudy">Year of Study *</label>
+                            <select id="yearOfStudy" class="form-control" required>
+                                <option value="">Select Year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                                <option value="5th Year">5th Year</option>
+                                <option value="Graduate">Graduate</option>
+                                <option value="Staff">Staff</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" class="form-control" required>
+                                <option value="">Select Department</option>
+                                <option value="Civil & Structural Engineering">Civil & Structural Engineering</option>
+                                <option value="Mechanical & Production Engineering">Mechanical & Production Engineering</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Agricultural & Biosystems Engineering">Agricultural & Biosystems Engineering</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="newsTitle">News Title *</label>
+                        <input type="text" id="newsTitle" class="form-control" placeholder="Enter a compelling news title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newsDescription">News Description *</label>
+                        <textarea id="newsDescription" class="form-control" placeholder="Provide detailed information about your news..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate">Event Date (if applicable)</label>
+                        <input type="date" id="eventDate" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageUrl">Image URL (optional)</label>
+                        <input type="url" id="imageUrl" class="form-control" placeholder="https://example.com/your-image.jpg">
+                    </div>
+
+                    <!-- File Upload Section -->
+                    <div class="form-group">
+                        <label>Upload Photo (Alternative to URL)</label>
+                        <div class="file-upload-container" id="fileUploadContainer">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p class="file-upload-text">Drag & drop your photo here or click to browse</p>
+                            <button type="button" class="file-upload-btn" onclick="document.getElementById('fileInput').click()">
+                                <i class="fas fa-folder-open"></i> Choose File
+                            </button>
+                            <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="file-preview" id="filePreview">
+                            <img id="previewImage" src="" alt="Preview">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Submit for Approval
+                    </button>
+                </form>
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <h3>Submission Successful!</h3>
+                    <p>Your news has been sent for approval. You'll receive an email notification once it's reviewed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approval Process -->
+    <section class="approval-process">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Approval Process</h2>
+                <p>How your news gets published on our platform</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Submit News</h3>
+                    <p>Fill out the submission form with all required details about your news or event.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Admin Review</h3>
+                    <p>Our editorial team reviews your submission for accuracy and relevance.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Approval</h3>
+                    <p>Once approved, your news will be published and visible to the entire community.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Notification</h3>
+                    <p>You'll receive an email notification when your news is published or if changes are needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="news-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section fade-in">
+                    <h3>ESA News</h3>
+                    <p>Engineering Students Association<br>University of Eldoret - Empowering the engineers of tomorrow through innovation, collaboration, and excellence since 2013.</p>
+                    <div class="social-links-mega">
+                        <a href="https://www.facebook.com/profile.php?id=61575201954261" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/esa_uoe?igsh=MTZ5NzFoZWx4eGUzaw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/engineering-students-association-00a577386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section fade-in">
+                    <h3>Quick Links</h3>
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Latest News</a></p>
+                    <p><a href="#">Submit News</a></p>
+                    <p><a href="#">Events Calendar</a></p>
+                    <p><a href="#">About ESA</a></p>
+                </div>
+                <div class="footer-section fade-in">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> University of Eldoret</p>
+                    <p><i class="fas fa-phone"></i> +254 113 333 041</p>
+                    <p><i class="fas fa-envelope"></i>esauoe@uoeld.ac.ke</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom-mega fade-in">
+                <p>&copy; 2025 Engineering Students Association - University of Eldoret. All Rights Reserved. | Developed By <a href="https://mkcoder729.github.io/just-my-portfolio/" target="_blank" rel="noopener noreferrer">Mukoya Khisa</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // File Upload Functionality
+        const fileInput = document.getElementById('fileInput');
+        const fileUploadContainer = document.getElementById('fileUploadContainer');
+        const filePreview = document.getElementById('filePreview');
+        const previewImage = document.getElementById('previewImage');
+
+        // Drag and drop functionality
+        fileUploadContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadContainer.classList.add('dragover');
+        });
+
+        fileUploadContainer.addEventListener('dragleave', () => {
+            fileUploadContainer.classList.remove('dragover');
+        });
+
+        fileUploadContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadContainer.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    previewImage.src = e.target.result;
+                    filePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select an image file.');
+            }
+        }
+
+        // Form submission handling
+        document.getElementById('newsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                yearOfStudy: document.getElementById('yearOfStudy').value,
+                department: document.getElementById('department').value,
+                newsTitle: document.getElementById('newsTitle').value,
+                newsDescription: document.getElementById('newsDescription').value,
+                eventDate: document.getElementById('eventDate').value,
+                imageUrl: document.getElementById('imageUrl').value,
+                hasFile: fileInput.files.length > 0
+            };
+
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                this.reset();
+                filePreview.style.display = 'none';
+                successMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        // Add fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const fadeInOnScroll = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                fadeInOnScroll.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
